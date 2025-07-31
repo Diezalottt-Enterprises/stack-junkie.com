@@ -1,13 +1,13 @@
 {
-  "product-management": 1,
-  "ai-development": 2,
+  "product-management": 2,
+  "ai-development": 3,
   "workflow-templates": 1,
   "technical-requirements": 1,
   "prd-templates": 1,
   "ai-tools": 2,
   "software-planning": 1,
   "mvp": 1,
-  "prd": 1,
+  "prd": 2,
   "feature-prioritization": 1,
   "moscow-method": 1,
   "lean-software": 1,
@@ -19,5 +19,8 @@
   "vibe-coding": 1,
   "coding-challenge": 1,
   "make-money-coding": 1,
-  "beginner-developer": 1
+  "beginner-developer": 1,
+  "workflow": 1,
+  "documentation": 1,
+  "context-window": 1
 }
