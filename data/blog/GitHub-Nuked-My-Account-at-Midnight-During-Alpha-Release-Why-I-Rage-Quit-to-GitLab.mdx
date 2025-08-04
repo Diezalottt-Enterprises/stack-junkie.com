@@ -1,0 +1,255 @@
+---
+title: 'GitHub Nuked My Account at Midnight During Alpha Release: Why I Rage-Quit to GitLab'
+date: '2025-08-04'
+tags:
+  - github-alternatives
+  - github-account-deleted
+  - gitlab-migration
+  - build-in-public
+  - developer-rage
+  - backup-strategy
+  - git-repository-safety
+draft: false
+summary: "GitHub deleted my entire account at midnight while pushing my alpha build—no warning, no email, no explanation. Five days later, still radio silence. Here's my migration story."
+authors:
+  - default
+---
+
+# GitHub Nuked My Account at Midnight During Alpha Release: Why I Rage-Quit to GitLab
+
+## Quick Summary
+
+GitHub straight-up deleted my account containing loads of work during the most critical moment possible—midnight alpha release. Zero warning. Zero explanation. Zero f\*cks given about their users.
+
+---
+
+## Introduction
+
+You know that feeling when you're about to hit a major milestone and the universe decides to take a massive dump on you? That was me five days ago.
+
+Picture this: It's midnight. I've been grinding for HOURS on my app's alpha build. The code is beautiful. Tests are green across the board. This is it—the moment I've been working toward for months. I hit that satisfying `git push`, ready to pop open a celebratory Red Bull.
+
+Then Capacitor's Appflow starts throwing errors. "Repository doesn't exist."
+
+Little did I know, I was about to experience the digital equivalent of coming home to find your house bulldozed with all your stuff inside. And the demolition crew? Gone. No note. No "sorry we destroyed your life." Nothing.
+
+## The Night GitHub Betrayed Me (And Every Developer Who Trusts Them)
+
+### The Moment Everything Went to Hell
+
+Let me paint you the full picture of this disaster. After pushing what should have been my glorious alpha build, I switched over to my deployment pipeline. That's when things got... interesting.
+
+Capacitor's Appflow Ionic was having a meltdown:
+
+> "ERROR: Repository not found"  
+> "ERROR: Authentication failed"  
+> "ERROR: [Insert more soul-crushing errors here]"
+
+My first thought? _Must be a glitch. GitHub's probably having issues._ , _Oh, I just need to login again, I'm sure it's fine_ , _I just pushed some features half an hour ago, nothing could have changed_
+
+I received an error saying the Github repo didn't exist. I followed the link to my own repo. And there it was-
+
+## The Five Stages of Developer Grief
+
+**Stage 1: Denial**
+
+"This can't be right. Let me just refresh..."  
+_Refreshes seventeen times_  
+_Clears cache_  
+_Tries different browser_  
+_Turns PC off and on again per every IT person ever_
+
+**Stage 2: Confusion**  
+I navigate to GitHub. I'm logged out. Odd as I was just logged in.... So I try to log in?
+
+- No error message
+- No "incorrect password"
+- No "account suspended"
+- Just... nothing. Like my account never existed.
+
+**Stage 3: Panic**  
+This is when it hits. My repositories. My projects. My commit history. My entire existence on GitHub—GONE.
+
+I frantically check:
+
+- Email? Nothing.
+- Spam folder? Nada.
+- Junk? Zip.
+- The "Promotions" tab? Empty.
+
+It's gone!
+
+**Stage 4: Rage**  
+The realization that I can't even submit a support ticket because YOU NEED AN ACCOUNT TO SUBMIT A TICKET. The irony wasn't lost on me. It was like being locked out of your house and being told you need to call for help from inside the house.
+
+**Stage 5: Whatever This Feeling Is**  
+This seems to be just a matured version of stage 4. Just more a more creative version of rage. I imagine their system is like this for a reason. But if the reasons for this are boiled down to one exchange, I'll bet it was something like the classic:
+Github Boss 1: "Sir, we have too many support tickets. We need to get those issue numbers down to meet our KPIs."
+Github Boss 2: "Well, just ban people who might want to submit a ticket. Then the ticket count will go down."
+Github Boss 1: "Of course!"
+Both: _Evil laugh_
+
+## The Support Ticket Saga
+
+I come up with a plan to get answers. I dig up my ancient personal GitHub account (thank god for old burner accounts) just to submit a support ticket. You'd think they'd prioritize "YOUR PLATFORM DELETED ALL MY WORK" tickets, right?
+
+**Day 1**: Submit ticket. Automated response says they'll get back to me "soon."  
+**Day 2**: Nothing.  
+**Day 3**: Still nothing.  
+**Day 4**: _Cricket sounds_  
+**Day 5**: I start writing this blog post because clearly GitHub has better things to do.
+
+### The Timing Couldn't Be More Perfectly Awful
+
+It was nearly midnight when I hit “git push” for my alpha build—just in time to see Capacitor Appflow spit back an error claiming the repo didn’t exist. That’s when I discovered:
+
+1. My GitHub account was logged out with zero warning or message.
+2. Every single repository (including my main app and all backups) had vanished.
+3. Appflow builds broke instantly because there was nothing to pull.
+4. Hours of coding and my sanity were wasted in the blink of an eye.
+
+GitHub’s cold, automated ban didn’t care about my release schedule, my midnight deadline, or the projects I thought were safely stored. Zero humanity. Zero consideration. Just cold, automated destruction.
+
+## The Great Migration: Finding Refuge in GitLab
+
+After spending about 47 minutes alternating between denial and rage, I knew it was time to press forward. To pickup the pieces. The show must go on, even if GitHub decided to yeet me into oblivion. In fact, I was better off that they did this. Better I learn this lesson now instead of later when I had more to lose.
+
+I began my hunt for a new home for my projects. I chose GitLab.
+
+Why GitLab? Let me count the ways:
+
+- **They actually communicate** - wow, right?
+- **Self-hosting options** - Because fool me once...
+- **Better CI/CD** - Get rekt, Github.
+- **Transparent operations** - !!!
+
+## The Migration Process
+
+**Step 1: Create Your Escape Route**
+
+```bash
+# If you still have local copies
+git remote rename origin github-old
+git remote add origin https://gitlab.com/yourusername/yourrepo.git
+```
+
+**Step 2: Push Everything**
+
+```bash
+# Push all branches because who knows what you'll need
+git push -u origin --all
+git push -u origin --tags
+```
+
+**Step 3: Update Your Life**
+
+- CI/CD pipelines → Point to GitLab
+- README badges → Update those URLs
+- Team access → Re-invite everyone
+- Webhooks → Reconfigure them all
+- The rest → Update the link everywhere
+- Your soul → Begin healing process
+
+## Building My Paranoid Backup Strategy
+
+This event caused me to lose a certain amount of trust when it comes to these platforms. And in hindsight, in my profession I should know already, to have redundancies in place. The only logical next step is making sure no one can do that ever again.
+
+**Primary**: GitLab (with all the features)  
+**Secondary**: Self-hosted Gitea instance (because trust issues)  
+**Tertiary**: Local server running automated pulls  
+**Quaternary**: Encrypted backups to cloud storage  
+**Paranoid Level**: USB drives in a fireproof safe
+
+Which is a good start....
+
+## During the Writing of this Article
+
+I attempted to login to Github to obtain a screenshot of the lack of error from login attempts. And was finally greeted with a message stating my account was suspended. They provided me the ability to submit a ticket with my banned account. How considerate of them...
+
+### My Message to GitHub (If They Ever Read This)
+
+![Github ticket submission](/../static/images/github-ticket-message2.png)
+
+```
+Dear GitHub,
+
+You people turned off my account with no notice or cause whatsoever. There wass no explanation. I was in the middle of trying to push the alpha for my app after spending countless hyours working on it. I didnt receiver any message why. and no errors when trying to log in.
+
+It's now been five days. And finally it says my account was suspended when I try to login. And wnow you are making me come to you... hat in hand... to appeal for access back to MY WORK!? My work, that was nuked for no reason whatsoever. I don't have much of a platform, but I may have one someday. And I promise you, random Github support person, that I'm making it my life's mission to hurt Github like Github hurt me.
+
+Every opportunity I get, I'll steer people away from this platform. I'm going to promote every single alternate platform while damaging Github. And I'll do it just by telling the exact truth about what happened.
+
+I will not rest until "Github treats their users like isnignificant pieces of dirt. They don't extend the common courtesy to explain when people's hard work gets disappeared. Actions which are rooted from their apathetic view towards the people who love their services" is at the top of every internet query with 'Github' as one of the search terms.
+
+I may be one person, and you may be a multi-million dollar corporation (probably), but I assure you I'm not alone. Because you have treated many people like this. We will find each other, raise awareness. And then, you will know our names. But also then.... it'll be too late. You'll be finished
+```
+
+Consider this my villain origin story.
+
+## Next Steps
+
+There are additional steps that needed to be done to make me immune to future mass deletion events. And this is all anyone really can do.
+
+1. **Finish migrating everything** to GitLab (90% done)
+2. **Set up automated backups** (because paranoia is justified)
+3. **Document everything** for the next person GitHub screws
+4. **Share this story** everywhere (starting now)
+5. **Build something awesome** on a platform that respects developers
+
+If I were to give Github their due, they could very well have had a good reason to disappear my account. Maybe they didn't like that I was making lots of commits after my experience with my last [mass deletion event](/blog/i-became-enemies-with-kilo). Perhaps they are just understaffed and have a huge backlog of support tickets they're working on. And most of all, perhaps this happening to me or anybody else isn't personal. And could just be a one-off event, or accident.
+
+**WRONG**
+
+Github has been deleting peoples work without explanation for years. Often times those people had a lot more to lose than me. Here is a situation where someone was more inconvenienced than I:
+
+[Author Nikolay's experience](https://medium.com/@catamphetamine/how-github-blocked-me-and-all-my-libraries-c32c61f061d3)
+
+I wanted to bring examples of this happening to people. It wasn't hard. Googling "Github deleted my account no notice." You will be greeted with page after page of testaments. This is happening frequently, and has been a problem for years!
+[One Ban](https://forum.gitlab.com/t/banned-from-github-losing-all-my-stars-newbee-on-gitlab/6647),
+[Two Ban](https://github.com/orgs/community/discussions/136618),
+[Three Ban](https://github.com/orgs/community/discussions/165734),
+[Four](https://github.com/orgs/community/discussions/111219),
+[Five Ban](https://github.com/orgs/community/discussions/134351),
+[Six Ban](https://github.com/orgs/community/discussions/48787),
+[Seven](https://news.ycombinator.com/item?id=39422068).
+
+My initial gut reaction after plowing through the stages of grief is usually to consider the other side. But when there are instances of this happening that I found from 2020 and earlier, they have had time to fix it. As easily as their automated systems delete accounts and cause all this hurt. A note informing the user what they did wrong could go a long way. It wouldn't help the pain, but it would save users from suffering the "not knowing" aspect of it all.
+
+Github is a private company, of course. They are free to run things however they'd like. But we as developers don't have to put up with that. Don't use Github.
+
+Tell me about your experience at the X link below. Has this happened to you? What did you do in response? I weant to hear all about it.
+
+---
+
+## FAQ
+
+### Why did GitHub delete accounts without warning?
+
+GitHub uses automated systems that can delete accounts without human review, providing no explanation or recovery options.
+
+### How do I migrate from GitHub to GitLab quickly?
+
+Use GitLab's import tool or update your git remotes: rename origin to github-old, add GitLab as new origin, push all branches and tags—takes under 10 minutes if you have local copies.
+
+### Can you recover deleted GitHub repositories?
+
+No. Once GitHub deletes your account, everything is gone permanently with no recovery options—always maintain local backups and use multiple platforms.
+
+### What's the best GitHub alternative in 2025?
+
+GitLab offers superior transparency, self-hosting options, and integrated CI/CD, plus they actually respond to support tickets—something GitHub apparently forgot how to do.
+
+### How do I backup Git repositories automatically?
+
+Set up a cron job to pull all repos nightly, use tools like `gitbackup`, mirror to multiple platforms, and keep encrypted archives in cloud storage. Paranoia is your friend.
+
+---
+
+## TL;DR
+
+- GitHub deleted my account at midnight during alpha release—no warning, no email, no explanation
+- 5 days of support tickets = 5 days of silence
+- Lost lots of work, but had local copies (ALWAYS HAVE LOCAL COPIES)
+- Migrated to GitLab in pure rage-fueled efficiency
+- Now running a paranoid backup strategy across 4 different systems
+- GitHub turned me into a villain with a migration guide
