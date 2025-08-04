@@ -1,6 +1,6 @@
 {
   "name": "stack-junkie-blog",
-  "version": "2.4.0",
+  "version": "2.1",
   "private": true,
   "scripts": {
     "start": "next dev",
@@ -24,14 +24,14 @@
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.2",
     "hast-util-from-html-isomorphic": "^2.0.0",
-    "image-size": "2.0.1",
+    "image-size": "^2.0.2",
     "next": "15.2.4",
     "next-contentlayer2": "0.5.5",
     "next-themes": "^0.4.6",
     "pliny": "0.4.1",
     "postcss": "^8.4.24",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "reading-time": "1.5.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-citation": "^2.3.1",
@@ -74,6 +74,23 @@
     "*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
       "prettier --write"
     ]
+  },
+  "overrides": {
+    "inflight": "npm:@isaacs/inflight@^1.0.6",
+    "glob": "^10.3.10",
+    "formidable": "^3.5.1",
+    "superagent": "^10.2.2",
+    "react-virtual": {
+      ".": "^2.10.4",
+      "react": "$react"
+    }
+  },
+  "resolutions": {
+    "inflight": "npm:@isaacs/inflight@^1.0.6",
+    "glob": "^10.3.10",
+    "formidable": "^3.5.1",
+    "superagent": "^10.2.2",
+    "react-virtual": "^2.10.4"
   },
   "packageManager": "yarn@3.6.1"
 }
