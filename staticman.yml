@@ -1,0 +1,14 @@
+comments:
+  allowedFields: ["name", "message"]
+  branch: "main"                      # change to "master" if that's your default
+  path: "data/comments/{options.slug}"
+  filename: "comment-{@timestamp}"
+  format: "json"
+  moderation: true
+  transforms:
+    message: "trim"
+  generatedFields:
+    date:
+      type: "date"
+      options:
+        format: "iso8601"
