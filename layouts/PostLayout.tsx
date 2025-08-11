@@ -1,7 +1,8 @@
 import { ReactNode } from 'react'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog, Authors } from 'contentlayer/generated'
-import Comments from '@/components/Comments'
+import CommentsStaticman from '@/components/CommentStaticman'
+import { getCommentsForSlug } from '@/lib/getComments'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
@@ -31,6 +32,9 @@ interface LayoutProps {
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
   const { filePath, path, slug, date, title, tags } = content
   const basePath = path.split('/')[0]
+
+  // Get existing comments for this post
+  const existingComments = getCommentsForSlug(slug)
 
   return (
     <SectionContainer>
@@ -101,12 +105,9 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 {` • `}
                 <Link href={editUrl()}>View on GitHub</Link>
               </div>
-              {siteMetadata.comments && (
-                <div
-                  className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
-                  id="comment"
-                >
-                  <Comments slug={slug} />
+              {siteMetadata.comments && siteMetadata.comments.provider === 'staticman' && (
+                <div className="pt-6 pb-6 text-gray-700 dark:text-gray-300" id="comment">
+                  <CommentsStaticman slug={slug} existingComments={existingComments} />
                 </div>
               )}
             </div>
