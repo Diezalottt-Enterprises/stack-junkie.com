@@ -1,0 +1,255 @@
+---
+title: 'Building Nimbus Clean Time: A Fast and Easy Sobriety Counter'
+date: '2025-08-11'
+tags:
+  - android-development
+  - sobriety-tracker
+  - privacy-first-apps
+  - build-in-public
+  - kotlin-jetpack-compose
+  - recovery-apps
+  - widget-development
+summary: 'Working on Nimbus Clean Time, an Android sobriety counter that eliminates setup friction and keeps your data private. No accounts, no cloud—just clean time tracking that works.'
+draft: false
+authors:
+  - default
+---
+
+# Building Nimbus Clean Time: A Fast and Easy Sobriety Counter
+
+## Quick Summary
+
+I'm building Nimbus Clean Time—an Android sobriety counter that cuts through the BS of existing apps. Zero setup friction, multiple substance tracking, and your data stays on YOUR device. Currently deep in development with Kotlin and Jetpack Compose.
+
+---
+
+## Introduction
+
+You know what's broken about recovery apps? Everything.
+
+I've been diving into the sobriety tracker space lately, and holy crap—these apps are designed like they want you to relapse. Want to track your clean time? Cool, just answer 47 personal questions first, create an account, verify your email, choose your recovery philosophy, and oh yeah—pay $40/year to track more than two substances.
+
+By the time you're done with onboarding, you've forgotten why you downloaded the damn thing.
+
+That's exactly why I'm building **Nimbus Clean Time**. It's an Android-only sobriety counter with one mission: get you from app download to seeing your clean time in under 60 seconds. No accounts. No cloud. No judgment. Just your progress, on your device.
+
+## What Makes Nimbus Different
+
+### Zero-Friction Setup
+
+Most recovery apps treat setup like a therapy session. Nimbus? You literally tap "Add Counter," pick what you're tracking (alcohol, opioids, gaming, whatever), set your start date, and boom—you're done. Widget on your home screen in under a minute.
+
+<Image
+  src="/static/images/nimbus-welcome-screen.png"
+  alt="Nimbus Clean Time welcome screen showing simple setup options"
+  width={300}
+  height={667}
+/>
+
+I'm obsessed with this metric. The current plan targets a median setup time of under 60 seconds from first app open to having a working widget. That's not just fast—it's respectful of someone who might be having the hardest day of their recovery.
+
+The setup flow is intentionally minimal. Here's what it looks like in practice:
+
+<Image
+  src="/static/images/nimbus-add-first-counter-screen.png"
+  alt="Adding your first counter in Nimbus Clean Time"
+  width={300}
+  height={667}
+/>
+
+No lengthy questionnaires, no psychological profiling, no account creation. Just the essentials to get you tracking.
+
+### Multiple Substance Tracking (Actually Free)
+
+Want to track alcohol AND nicotine AND social media? Go for it. Most apps paywall multiple counters because... reasons? Nimbus gives you unlimited counters because recovery isn't a freemium game.
+
+The app comes with smart presets:
+
+- **Substances**: Alcohol, Opioids, Stimulants, Cannabis, Nicotine, Benzodiazepines, etc.
+- **Behaviors**: Gambling, Gaming, Social Media, Shopping, Pornography, Sugar
+- **Custom**: Track literally anything else. You can define your own substances and behaviors.
+
+<Image
+  src="/static/images/nimbus-choose-what-to-track.png"
+  alt="Choosing what to track in Nimbus - substances, behaviors, or custom options"
+  width={300}
+  height={667}
+/>
+
+The interface makes it dead simple to pick what you're tracking, whether it's a common substance or something completely custom:
+
+<Image
+  src="/static/images/nimbus-name-habit.png"
+  alt="Setting up a custom habit name in Nimbus Clean Time"
+  width={300}
+  height={667}
+/>
+
+### Privacy That Actually Means Something
+
+Here's the thing about "privacy-first" apps—most of them are lying. They say privacy-first, then immediately ask for your email, sync to the cloud, and track your usage patterns.
+
+Nimbus is different:
+
+- **100% offline** - No internet required for any core functionality
+- **No accounts** - Your data lives in your device's local storage.
+- **No tracking** - I don't know who you are or what you're tracking
+- **No cloud sync** - Because the best way to protect your data is to never upload it
+
+Any future cloud sync will be opt-in.
+
+### Lapse Handling That Doesn't Suck
+
+Most apps treat lapses like moral failures. Nimbus treats them like data points. Hit a rough patch? Tap "Log Lapse," optionally add a note for context, and your new streak starts immediately. Your previous streak gets saved to history—because that progress still counts.
+
+You can even backdate lapses if you need to be honest about timing. No shame, no lectures, just accurate tracking.
+
+<Image
+  src="/static/images/nimbus-set-clean-date.png"
+  alt="Setting your clean date in Nimbus Clean Time with date picker"
+  width={300}
+  height={667}
+/>
+
+Once you've got your counters set up, the main interface shows all your progress at a glance:
+
+<Image
+  src="/static/images/nimbus-counter-overview-one.png"
+  alt="Nimbus Clean Time counter overview showing one active counter"
+  width={300}
+  height={667}
+/>
+
+And when you're tracking multiple things, it scales beautifully:
+
+<Image
+  src="/static/images/nimbus-counter-overview-three.png"
+  alt="Nimbus Clean Time counter overview showing three active counters"
+  width={300}
+  height={667}
+/>
+
+Tapping any counter takes you to the detail view where you can see more information and manage your streaks:
+
+<Image
+  src="/static/images/nimbus-counter-detail.png"
+  alt="Nimbus Clean Time counter detail view with options and history"
+  width={300}
+  height={667}
+/>
+
+## The Technical Deep Dive
+
+I'm building this with modern Android development practices because, frankly, most recovery apps feel like they were coded in 2015.
+
+### Tech Stack
+
+- **Kotlin** with **Jetpack Compose** for that smooth, modern UI
+- **Room Database** for rock-solid local storage
+- **Hilt** for dependency injection
+- **WorkManager** for reliable widget updates
+- **Glance** for the home screen widget
+- **Material 3** design system
+
+### Architecture That Makes Sense
+
+I'm following a modular MVVM architecture with clear separation:
+
+- **Data Layer**: Room database, preferences, repository pattern
+- **Domain Layer**: Use cases, business logic, date calculations
+- **Presentation Layer**: Compose UI, ViewModels, navigation
+
+The whole thing is built with Test-Driven Development (TDD) because recovery apps crashing is not an option. Every feature gets comprehensive unit tests before implementation.
+
+### Widget-First Design
+
+The home screen widget isn't an afterthought—it's the core feature. Most people check their sobriety counter multiple times a day for motivation. Why make them open an app every time?
+
+The widget updates daily at midnight (or at your specific start time if you set one) and shows clean days prominently. Tap it to open the app directly to that counter's detail view.
+
+## Development Status & What's Next
+
+Right now I'm deep in the MVP development phase. The core architecture is solid, and I'm working through the TDD cycle for each major feature:
+
+**Currently Working On:**
+
+- Counter creation and management system
+- Date calculation engine (handling timezones, DST, leap years)
+- Widget implementation and update scheduling
+- Lapse logging with history preservation
+
+**Next Up:**
+
+- Polish animations and micro-interactions
+- Tutorial flow (skippable, max 4 screens), may delete altogether if app is intuitive
+- Battery optimization guidance
+- Closed testing with 12 users
+
+The goal is to ship an MVP that proves the core hypothesis: eliminate setup friction, and people will actually use a sobriety tracker consistently.
+
+## Why Android Only?
+
+Simple: I want to do one platform really well instead of two platforms poorly. Android gives me more flexibility with widgets, better offline capabilities, and frankly, most recovery apps on Android are trash. There's a real opportunity here.
+
+Plus, Android development with Kotlin and Compose is actually fun these days. The tooling is mature, the documentation is solid, and the community support is incredible.
+
+## What I'm Learning
+
+Building a recovery app is different from building a typical productivity app. The stakes feel higher. Someone might download this on their worst day, and if the app is confusing or broken, they might just give up entirely.
+
+That's why I'm obsessing over details that might seem trivial:
+
+- Animations that feel encouraging, not clinical
+- Error messages that are helpful, not judgmental
+- Empty states that motivate instead of shame
+- Tutorial copy that respects intelligence while being genuinely helpful
+
+Every decision gets filtered through: "Would this help or hurt someone on day one of recovery?"
+
+---
+
+## What's Your Take?
+
+As part of my own #buildinpublic journey, I'm sharing this project publicly because I think transparency makes better products. Plus, I want to hear from people who actually use recovery apps—what sucks about current options? What would make you stick with an app long-term?
+
+If you're interested in following the development, I'll be posting updates as I work toward the MVP launch. And if you know someone who might benefit from a simpler sobriety tracker, I'd love to get them into the closed testing phase once it's ready.
+
+### Next Steps
+
+1. **Follow the journey** on [Twitter](https://x.com/Stack_Junkie) for development updates
+2. **Share your thoughts** - what would make you actually use a sobriety tracker?
+
+---
+
+## FAQ
+
+### Why not just use existing apps like Nomo or I Am Sober?
+
+Most existing apps either paywall basic features, require accounts/cloud sync, or have terrible UX. I want something that respects both your privacy and your time.
+
+### Will there be an iOS version?
+
+Not in the MVP. I'd rather build one platform really well than two platforms poorly. If the Android version proves the concept, iOS might follow.
+
+### How will you make money without subscriptions?
+
+The MVP will be 100% free to validate the concept. Future monetization might include optional cloud backup (for people who want it) or premium features, but core functionality stays free forever.
+
+### When can I try it?
+
+I'm targeting closed testing in the next few weeks with at least 12 users. Follow me on Twitter for updates on when testing opens up.
+
+### What if you abandon the project?
+
+Fair question. The app is designed to work 100% offline with no cloud dependencies, so even if I disappeared tomorrow, your data stays safe on your device. Plus I'm building this in public with full transparency.
+
+---
+
+## TL;DR
+
+- Building Nimbus Clean Time: Android sobriety tracker that doesn't suck
+- Zero setup friction (under 60 seconds to working widget)
+- 100% offline, no accounts, unlimited free counters
+- Modern Kotlin/Compose architecture with TDD approach
+- Currently in MVP development, closed testing coming soon
+- Follow [@Stack_Junkie](https://x.com/Stack_Junkie) for updates and let me know your thoughts!

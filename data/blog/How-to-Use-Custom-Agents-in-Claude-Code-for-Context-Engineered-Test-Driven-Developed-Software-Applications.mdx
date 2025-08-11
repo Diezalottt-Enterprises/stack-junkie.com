@@ -1,0 +1,881 @@
+---
+title: 'How to Use Custom Agents in Claude Code for Context-Engineered Test Driven Developed Software Applications'
+date: '2025-08-11'
+tags:
+  - claude-code-agents
+  - ai-development
+  - multiple-ai-agents
+  - claude-code
+  - software-development
+  - tdd-development
+  - mvp-development
+summary: 'Learn the bulletproof strategy for using multiple AI agents with public repos to build complete software projects—from comprehensive planning to specialized Claude Code agents that deliver superior code quality.'
+draft: false
+authors:
+  - default
+---
+
+# The Best Strategy with Public Repos to Have Multiple AI Agents Develop an App
+
+## Quick Summary
+
+Multiple AI agents can build your entire software project using public repos, but only if you follow a bulletproof strategy that starts with comprehensive planning and ends with specialized Claude Code agents delivering superior code quality.
+
+## Table of Contents
+
+1. [The Two-Repo Strategy That Actually Works](#the-two-repo-strategy-that-actually-works)
+   - [The Pre-Development Toolkit](#the-pre-development-toolkit)
+2. [Creating the Project Requirements Document (PRD)](#creating-the-project-requirements-document-prd)
+3. [Creating the MVP Concept](#creating-the-mvp-concept)
+4. [Creating the MVP Plan](#creating-the-mvp-plan)
+5. [Define the Claude Code Agents](#define-the-claude-code-agents)
+   - [Setting Up Global Claude Code Agents](#setting-up-global-claude-code-agents-the-smart-way)
+   - [Using Your Agents (The Right Way)](#using-your-agents-the-right-way)
+   - [Agent Coordination Strategy](#agent-coordination-strategy)
+6. [The Agent Development Workflow That Actually Works](#the-agent-development-workflow-that-actually-works)
+   - [Setting Up Your Development Environment](#setting-up-your-development-environment)
+   - [The Real-World Results](#the-real-world-results)
+   - [Your Next Move](#your-next-move)
+7. [FAQ](#faq)
+8. [TL;DR](#tldr)
+
+---
+
+## Introduction
+
+What if I told you that **multiple AI agents** working together on **public repos** could build your entire software project? But only if you avoid the #1 mistake that turns promising code into spaghetti chaos?
+
+Lots of vibe-coders jump straight into **Claude Code** with vague prompts like "Make me an MSaaS app. Don't make mistakes!" This approach leads to inconsistent assumptions across coding sessions, creating debugging nightmares that even Claude can't untangle.
+
+The solution? A **bulletproof strategy** that starts with comprehensive project planning before you ever touch **Claude Code**. In this guide, I'll show you how to create a detailed roadmap that transforms **Claude Code agents** from chaotic code generators into a coordinated development team that actually follows your vision.
+
+## The Two-Repo Strategy That Actually Works
+
+Here's the thing about **Claude Code**: it's brilliant, but it's also chaotic without proper direction. From my own experience—and reading way too many developer horror stories—I found a strategy that actually works.
+
+We're going to use two battle-tested repos that do the heavy lifting for us:
+
+- **[AI-Product-Development-Toolkit](https://github.com/TechNomadCode/AI-Product-Development-Toolkit)** by TechNomadCode for bulletproof project planning
+- **[awesome-claude-code-agents](https://github.com/hesreallyhim/awesome-claude-code-agents/tree/main/agents)** by hesreallyhim for specialized Claude Code agents
+
+But here's the critical part everyone misses: **Test-Driven Development (TDD) is non-negotiable**. You MUST tell the AI during project prep that your development plan needs to include explicit instructions to write tests before code.
+
+Here's why: When you're using **Claude Code** for development, it needs clear direction at every step. If your planning documents don't emphasize TDD, Claude will default to writing implementation first—which leads to untestable, fragile code that breaks the moment you add new features.
+
+**Pro tip for solo developers:** When working with these tools, specify your constraints upfront—budget, timeline, tech preferences, and UI standards. The AI uses this context to make better architectural decisions throughout the planning process.
+
+This isn't optional. It's what separates working apps from expensive tech demos.
+
+### The Pre-Development Toolkit
+
+**Phase 1: Project Planning (AI-Product-Development-Toolkit)**
+
+1. **[Guided-PRD-Creation.md](https://github.com/TechNomadCode/AI-Product-Development-Toolkit)** → Build your Product Requirements Document
+2. **[Guided-MVP-Concept-Definition.md](https://github.com/TechNomadCode/AI-Product-Development-Toolkit)** → Define your MVP scope
+3. **[Guided-MVP.md](https://github.com/TechNomadCode/AI-Product-Development-Toolkit)** → Create your MVP implementation plan
+
+**Phase 2: Development (awesome-claude-code-agents)**
+
+1. **[backend-typescript-architect.md](https://github.com/hesreallyhim/awesome-claude-code-agents/tree/main/agents)** → Set up your backend architecture
+2. **[python-backend-engineer.md](https://github.com/hesreallyhim/awesome-claude-code-agents/tree/main/agents)** → Handle backend logic and APIs
+3. **[senior-code-reviewer.md](https://github.com/hesreallyhim/awesome-claude-code-agents/tree/main/agents)** → Review and optimize your code
+4. **[ui-engineer.md](https://github.com/hesreallyhim/awesome-claude-code-agents/tree/main/agents)** → Build your frontend interface
+
+### Creating the Project Requirements Document (PRD)
+
+The first step is using the **[Guided-PRD-Creation.md](https://github.com/TechNomadCode/AI-Product-Development-Toolkit)** to create a PRD for your project. The prompt is comprehensive but dead simple to use—just edit the file and dump your project concept into the clearly marked section.
+
+Here's the basic structure:
+
+```md
+MY INITIAL BRAINDUMP:
+
+--- BRAINDUMP START ---
+[ <<< PASTE YOUR RAW NOTES, IDEAS, CONTEXT, GOALS, FEATURES, PROBLEMS, ETC. HERE >>> ]
+--- BRAINDUMP END ---
+```
+
+**What this looked like for me:** I'm currently building [Nimbus, a sobriety tracker app](/blog/nimbus-sober-date-counter), using this exact method. Here's what my braindump looked like:
+
+<details>
+<summary><strong>Click to view my actual braindump</strong></summary>
+
+```md
+--- BRAINDUMP START ---
+A sobriety tracking app with a simple, intuitive UI/UX following best practices from Appcues, UX Design Institute, Medium, and Learn UI Design. The app offers two modes: account-based with cloud saving or local-only storage.
+
+On first launch, the user chooses between account creation or local setup. Local setup allows selecting either a single general sobriety date or multiple dates for specific substances, with an option to add custom entries. Users can switch modes later. General mode displays days sober by default with a toggle for years/months/weeks/days. Multiple mode supports unlimited counters.
+
+Include widgets for different sizes: single-counter, multi-counter showing several dates, and configurable widgets for specific counters.
+
+Monetization starts with cloud saving as a paid feature; additional premium features to be determined. Possible social feature: anonymous discussion board with limited posting for free accounts and view-only for non-accounts. Add an achievement system for milestones such as 1 day, 7 days, 2 weeks, 1 month, 6 months, 1 year, and 2 years.
+---
+
+BRAINDUMP END ---
+```
+
+</details>
+
+**Claude's follow-up questions:** The AI immediately started asking the right questions to flesh out the details:
+
+- Do you want Android only for v1, or Android + iOS, or also a web view?
+- Any lock-screen or watch widgets planned for v1, or save those for later?
+- When a user reports a slip/lapse, should the counter reset immediately, or preserve prior streaks?
+- Do you want notes/journaling on events, or keep v1 to pure counters with optional notes later?
+- What's the minimum free feature set, and what goes behind the paywall?
+- Rough price target for premium (e.g., $0.99–$2.99/month)?
+
+**The game-changing result:** After going back and forth with Claude's questions, I had a comprehensive PRD that gave **Claude Code** exactly what it needed to build Nimbus without making assumptions or going off-track.
+
+**Technical context matters:** Don't just dump your idea and walk away. Include details like "solo developer," "zero budget," "modern UI required," and "Claude Code development environment." These constraints shape how the AI structures your entire project plan. For more detailed PRD workflows, check out my [9-Phase PRD Workflow That Makes AI Tools Actually Work](/blog/ai-ready-prd-workflow-template) and [How to Define Your Software MVP from a PRD Step by Step](/blog/how-to-define-your-software-mvp-from-a-prd-step-by-step-guide).
+
+<details>
+<summary><strong>Click to view complete PRD output</strong></summary>
+
+---
+
+Sobriety Counter (Android) — PRD Draft v1.0
+
+1.  Introduction / Overview
+
+People early in recovery need a simple, trustworthy way to **set sober dates** (for one or many things) and **see clean time at a glance**. Most existing apps overcomplicate or gate basic features.
+
+This product is an **Android-only**, **offline-first** sobriety counter with:
+
+- **General** and **Multiple** counters (substances + behaviors + custom).
+
+- **Optional time-of-day** for precision.
+
+- A **days-only widget** bound to a selected counter.
+
+- **Slip + History** that resets the current streak while preserving past runs.
+
+> **MVP heart:** “Set sober dates for one or multiple things + have a widget that shows the days.” Everything else orbits this.
+
+---
+
+2.  Goals / Objectives
+
+**Product goals**
+
+- Deliver a **fast, intuitive** sobriety counter that “doesn’t suck,” keeps core features free, and respects privacy.
+
+- Encourage **daily engagement** without dark patterns; be supportive, not punitive.
+
+**SMART-ish targets (first 90 days after launch)**
+
+- **Crash-free sessions:** ≥ 99.9%.
+
+- **Time-to-first-counter:** ≤ 60 seconds median from first open.
+
+- **Widget attach rate:** ≥ 40% of active users add at least one widget.
+
+- **7-day retention:** ≥ 25% (baseline; refine after telemetry).
+
+- **Slip logging usage:** ≥ 20% of users have at least one logged lapse event (indicates users can recover gracefully).
+
+---
+
+3.  Target Audience / User Personas
+
+- **Newcomer in early recovery:** wants the simplest path to create a counter and see it on the home screen.
+
+- **Multi-tracker:** tracks separate counters for several substances/behaviors.
+
+- **Privacy-first local user:** wants no account, no cloud—everything local.
+
+- **Returning after lapse:** needs a quick, non-shaming way to reset, keep history, and continue.
+
+- **Long-term maintainer:** checks counters occasionally; may want milestone nudges later.
+
+---
+
+4.  User Stories / Use Cases
+
+MVP (must ship)
+
+- **Onboarding**
+  - As a new user, I can pick **General** or **Multiple** mode, or just **Add a counter** immediately.
+
+- **Create counters**
+  - As a user, I can create a **General** counter by setting a **start date** and (optionally) **time-of-day**.
+
+  - As a user, I can create **multiple** counters using **presets** (Substances + Behaviors) or **custom** names.
+
+- **View counters**
+  - As a user, I see a **list of counters** with each one’s **days clean** (whole days by default).
+
+  - If a counter has a **start time**, its **detail view** shows **precise elapsed time** (ticking per second in-app).
+
+- **Slip + History**
+  - From a counter’s detail, I can tap **Log lapse** → **Confirm** → the app **ends the current run** (captures start/end/duration, optional **note**, supports **backdate**) and **resets** the current streak to 0 (new run starts now or at the chosen backdated time).
+
+  - I can view a **History** page listing my past runs.
+
+- **Widget**
+  - I can add a **single, resizable Android widget** that displays **whole days** for a **selected counter** and opens that counter when tapped.
+
+Post-MVP (still 1.0)
+
+- **Accounts (free) + Paid cloud**
+  - As a user, I can **create an account (email/password)** to enable **paid cloud backup/sync**.
+
+  - As a local user, after I create an account, I’m offered a **one-tap “Back up now”** that uploads my local data to the cloud.
+
+- **Notifications (lightweight)**
+  - **Milestone notifications** (e.g., 7/30/60/90/180/365 days), **on by default**, user-controllable.
+
+Later
+
+- **Achievements & share cards**; **multi-counter widget**; **“At risk / urges / triggers” flow**; **discussion boards**; **themes**; **data export**; **app lock (biometrics/PIN)**; **MOTD integration (AA/NA/SMART) details & licensing**; **social sign-in**.
+
+---
+
+5.  Functional Requirements
+
+5.1 Onboarding & Navigation
+
+**MVP**
+
+- First run: simple choice—**Create General counter**, **Create Multiple counters**, or **Skip to app** (can add later).
+
+- Main screen: **Counters list** (title, days clean, subtle type label).
+
+- Tap a counter → **Counter detail** (name/edit, start date/time, precise elapsed if time set, **Log lapse** button, **History** link).
+
+**Post-MVP (1.0)**
+
+- Settings: **Sign in / Create account** (email/password).
+
+- Settings: **Milestone notifications** toggle per counter or global.
+
+  5.2 Counters & Data Model
+
+**MVP**
+
+- **Types & presets**
+  - **General** (independent).
+
+  - **Substances:** Alcohol, Opioids, Stimulants, Cannabis, Nicotine/Tobacco, Benzodiazepines, Hallucinogens, Dissociatives, Inhalants, **Other (custom)**.
+
+  - **Behaviors:** Gambling, Pornography/Cybersex, Gaming, Social Media, Shopping/Spending, Sugar/Sweets, Caffeine, **Other (custom)**.
+
+- **Fields per counter**
+  - `id`, `name/label`, `type` (General/Substance/Behavior/Other), `startDate`, `startTime` (optional), `timezone` (captured), `activeRunId`, `history[]`.
+
+- **Display logic**
+  - If `startTime` present: **precise elapsed** ticks in-app; else show **whole days** and roll at **local midnight**.
+
+  - **Days shown** = difference using timezone-aware date math (handles DST/leap years).
+
+- **Editing**
+  - Rename counter; change icon/color later (not MVP).
+
+  - **Editing past runs**: deferred (later).
+
+  5.3 Slip + History
+
+**MVP**
+
+- **Log lapse** flow (from counter detail):
+  - Tap **Log lapse** → **Confirm dialog** (“This resets your current streak”).
+
+  - Optionally **backdate** lapse (date/time defaults to “now”).
+
+  - Optional **note** field for context.
+
+  - App closes the active run (record `start`, `end`, `duration`, `note`) and **starts new run** at lapse timestamp.
+
+- **History view**
+  - Reverse chronological list: **duration**, **start → end**, **note** (if any).
+
+**Later**
+
+- Edit or delete historical runs.
+
+  5.4 Widgets
+
+**MVP**
+
+- **One resizable home-screen widget** (Android AppWidget).
+
+- Shows **whole days** for a **selected counter**.
+
+- Refresh behavior: update **at or shortly after local midnight** (no second-level updates in widget).
+
+- Tap opens app **to that counter’s detail**.
+
+- Multiple instances supported (user can place more than one widget, each bound to a different counter).
+
+**Later**
+
+- **Multi-counter widget**; potential **precise-time widget** (subject to update limits).
+
+  5.5 Accounts & Cloud (Monetization)
+
+**Post-MVP (1.0)**
+
+- **Accounts are free** (email/password).
+
+- **Paid = Cloud backup/sync** only in 1.0.
+
+- Local-to-cloud migration: After signup, detect local data → offer **one-tap backup**.
+
+- Sync scope (1.0): counters, runs/history, notes, preferences. Conflict policy: last-writer-wins for MVP.
+
+**Pricing**
+
+- TBD after cost modeling; target **significantly cheaper** than \$40/year competitors.
+
+  5.6 Notifications
+
+**Post-MVP (1.0)**
+
+- **Milestone notifications**: predefined thresholds (1, 7, 14, 21, 30, 60, 90, 180, 365, 730 days).
+
+- Per-counter or global toggle; default **on**.
+
+**Later**
+
+- Daily “Check-in” reminder and/or **MOTD** (final approach TBD; likely link-only + personal notes to avoid licensing until permissions are secured).
+
+- “At risk / urges / triggers” journaling prompts.
+
+---
+
+6.  Non-Functional Requirements (NFRs)
+
+**Performance**
+
+- App launch to counters list: **< 2s** on a 3-year-old mid-range device.
+
+- In-app precise timer must tick smoothly without obvious jank.
+
+**Reliability**
+
+- Midnight rollover should update counters **within \~15 minutes** of local midnight without requiring the **SCHEDULE_EXACT_ALARM** permission.
+
+- **Crash-free sessions ≥ 99.9%**.
+
+**Offline-first**
+
+- All MVP functionality works **fully offline**.
+
+- Data persists through app restarts and OS reboots.
+
+**Security & Privacy**
+
+- **MVP local data:** stored on-device (e.g., Room/SQLite). No cloud in MVP.
+
+- **Post-MVP cloud:** **standard encryption**—TLS in transit; encryption at rest on server. E2EE considered later for sensitive fields.
+
+- No selling of personal data. Minimal, privacy-respecting analytics (opt-in) for KPI measurement.
+
+**Accessibility & Inclusivity**
+
+- Supports system **font scaling** and **dark mode**.
+
+- Color usage avoids red/green-only distinctions; clear labels and icons.
+
+- Language: neutral, non-shaming.
+
+**Compatibility**
+
+- **Android-only**. Target latest SDK; **min-SDK TBD** (propose API 26–28; see Open Questions).
+
+**Observability (opt-in)**
+
+- Anonymous events: first counter created, widget added, lapse logged, milestone reached, daily active usage—strictly aggregated.
+
+---
+
+7.  Design Considerations
+
+- **Intuitive UI**: single primary surface (Counters list), simple FAB/“Add counter,” progressive disclosure for details.
+
+- **Affordances**: clear “Log lapse” button, confirmation dialog, obvious “History” entry point.
+
+- **Clarity**: show **days** prominently; “more detail” reveals y/m/w/d and precise time if applicable.
+
+- **Simplicity**: no ads; no paywall on basic counters or widget.
+
+(Visual mockups to follow once flows are locked.)
+
+---
+
+8.  Success Metrics
+
+- **Adoption**: ≥ 40% users add a widget; median **≤ 60s** to first counter creation.
+
+- **Reliability**: ≥ 99.9% crash-free; midnight rollover within \~15 minutes.
+
+- **Engagement**: ≥ 25% 7-day retention; ≥ 20% users log at least one lapse.
+
+- **Monetization readiness (post-MVP)**: ≥ 30% of active users create an account (free) within 60 days; conversion to paid cloud TBD after pricing test.
+
+---
+
+9.  Open Questions / Future Considerations
+
+- **Min SDK**: propose API 26–28. Preference?
+
+- **Time math**: confirm policy for DST/leap seconds (use timezone-aware day diffs; floor to whole days; precise in detail view only).
+
+- **MOTD** integration & licensing strategy (AA/NA/SMART): link-only vs excerpts; permissions if excerpts later.
+
+- **Pricing & billing** for cloud backup (monthly vs annual; exact price TBD after cost modeling).
+
+- **Cloud provider & region** (compliance, cost).
+
+- **Data export (CSV/JSON)**: later; free vs paid to be decided.
+
+- **App lock** (biometrics/PIN): later; free vs paid to be decided.
+
+- **Achievements & share cards**: later; define visuals and social share copy.
+
+- **Multi-counter widget**: later; UI layout options.
+
+- **Editing history**: allow or keep immutable? If allowed, define audit trail.
+
+- **Moderation & community (boards)**: later; anon identity, rate limits, reporting, moderation tools.
+
+---
+
+Explicit MVP Subset (for your MVP doc)
+
+- **Create and manage counters**: General + Multiple (presets + custom).
+
+- **Set start date** with **optional time-of-day**.
+
+- **Slip + History**: confirm → reset streak; capture prior run with optional note; backdate allowed.
+
+- **Widget**: single days-only widget bound to a chosen counter; opens that counter; refreshes daily.
+
+- **Local-only** (no accounts/cloud in MVP).
+
+---
+
+</details>
+
+### Creating the MVP Concept
+
+Once you have your comprehensive PRD, the next step is using **[Guided-MVP-Concept-Definition.md](https://github.com/TechNomadCode/AI-Product-Development-Toolkit)** to extract the MVP from all that detail.
+
+This prompt requires three inputs:
+
+- **Your complete PRD** (the foundation)
+- **UX Specifications** (if you have them)
+- **Your initial thoughts** about what should be in v1
+
+**What I fed Claude:** I pasted my entire Nimbus PRD and added my initial thoughts:
+
+```md
+--- INITIAL THOUGHTS START ---
+The goal is to create a sober date tracking app without paywalls for basic features. Users can choose between a single general sobriety date or multiple dates for different substances, with preset options and the ability to add custom items. A dashboard displays all configured dates, and users can switch between viewing elapsed time as total days, full breakdown (years, months, days), or both. The UI/UX for the MVP should be polished and intuitive. Include at least one widget to display elapsed time. Users must be able to reset timers after a lapse, with a defined flow for this process.
+---
+
+INITIAL THOUGHTS END ---
+```
+
+**The result:** Claude took my PRD and distilled it into a focused MVP concept that actually makes sense to build first.
+
+<details>
+<summary><strong>Click to view the complete MVP concept output</strong></summary>
+
+Sobriety Counter MVP Concept Description
+_Version 1.0 - MVP Definition_
+
+1.  Core MVP Hypothesis/Goal
+
+**Primary Hypothesis:** Users in early recovery will successfully adopt and actively use a sobriety counter if we eliminate ALL friction between app download and having a working home screen widget (targeting under 60 seconds setup vs. competitors' 5-10+ minutes of onboarding questions and account creation).
+
+**Learning Objectives:**
+
+- Validate that setup friction is the primary barrier to adoption
+- Confirm that users value immediate widget access over personalization features
+- Test whether "beautiful simplicity" can differentiate in a crowded market
+
+2.  Target Audience (MVP Subset)
+
+**Primary:** Multi-substance/behavior trackers in early recovery (first 90 days)
+
+- Currently frustrated with paywall restrictions on multiple counters
+- Want to track 2-5 different substances/behaviors simultaneously
+- High motivation but low patience for complex setup
+- Checking counters multiple times daily for motivation
+
+**Secondary:** Anyone seeking the simplest possible sobriety tracking
+
+- May only need one counter but value frictionless experience
+- Widget-focused users who primarily interact via home screen
+
+_Note: Explicitly NOT targeting users who want social features, detailed analytics, or extensive personalization in this MVP_
+
+3.  Problem Solved (MVP Focus)
+
+**Core Problem:** Existing sobriety apps create unnecessary friction between a motivated user and their ability to see their progress, requiring:
+
+- Account creation
+- Extensive psychological profiling questions
+- Multiple screens before seeing any value
+- Payment to track more than 1-2 things
+- Complex navigation to set up widgets
+
+**MVP Solution:** Direct path from download → counters → widget in under 5 taps
+
+4.  Minimum Feature Set
+
+IN (Must Ship):
+
+**Setup & Counters:**
+
+- **No onboarding flow** - Direct to "Add your first counter"
+- **Multiple counters only** - No "general vs. multiple" choice
+- **Preset categories** with common substances/behaviors
+- **Smart defaults:** Today as start date, no time-of-day required initially
+- **Quick-add flow:** Select type → Confirm date → Counter created
+
+**Display & Interaction:**
+
+- **Counter list view** showing days clean per counter
+- **Counter detail view** with display toggle (simple vs. detailed)
+- **Beautiful, minimal UI** with polished animations and transitions
+
+**Widget (Core Feature):**
+
+- **Single resizable widget** showing days for selected counter
+- **Prominent "Add Widget" button** after first counter creation
+- Updates at midnight local time
+
+**Lapse Handling:**
+
+- **Simple reset flow** with confirmation
+- **Optional backdate** for lapse time
+- **Basic history** showing previous streaks (read-only for MVP)
+
+OUT (Explicitly Excluded from MVP):
+
+- Account creation/sign-in
+- Cloud backup/sync
+- Milestone notifications
+- Social features of any kind
+- Complex personalization
+
+5.  Success Metrics
+
+**Primary Metrics:**
+
+- **Widget Attachment Rate:** ≥40% of users who create a counter add widget
+- **Time to First Widget:** Median under 60 seconds from first app open
+- **Setup Completion:** ≥70% of downloads result in at least one counter created
+- **7-Day Retention:** ≥25%
+
+</details>
+
+**Why this step matters:** This MVP concept becomes your **scope guardian**. Every time you're tempted to add "just one more feature" during development, you refer back to this document. It keeps **Claude Code** focused on building what actually matters instead of feature creep.
+
+### Creating the MVP Plan
+
+The final planning step uses **[Guided-MVP.md](https://github.com/TechNomadCode/AI-Product-Development-Toolkit)** to transform your PRD and MVP concept into a battle-ready development plan. This isn't just documentation—it's your **Claude Code instruction manual** for the entire build.
+
+**What makes this different:** You're not just creating an MVP plan, you're creating a plan specifically designed for AI agents to execute. Every constraint, every preference, every technical decision gets baked into the plan upfront.
+
+**What I fed Claude:** I included my complete PRD and MVP concept, then added these critical constraints:
+
+<details>
+<summary><strong>Click to view my development constraints</strong></summary>
+
+```md
+--- DEVELOPMENT CONSTRAINTS ---
+Solo developer using Claude Code for all development work
+$0 budget - must use free/open source tools only  
+No external deadlines or milestones
+Modern tech stack with excellent AI documentation
+TDD approach - tests defined first, always
+Focus on single widget for MVP (scope control)
+---
+
+END CONSTRAINTS ---
+
+--- TECHNICAL PREFERENCES ---
+Widget updates once daily at user's clean time
+Support backdate functionality for lapses  
+Firebase Analytics (if setup isn't complex)
+Modular code architecture for maintainability
+Educational comments explaining what code does
+--- END TECHNICAL ---
+
+--- UI/UX REQUIREMENTS ---
+Modern, polished feel that doesn't look like a prototype
+Smooth animations and micro-interactions
+Brief but effective onboarding tutorial
+Clear visual feedback for all user actions
+Professional-grade polish from day one
+--- END UI/UX ---
+
+--- CLAUDE CODE SETUP REQUIREMENTS ---
+Complete claude.md file structure
+Organized .claude folder with all prompts
+Pre-written prompts for start-to-finish development
+Everything planned upfront (Claude Code context doesn't persist between sessions)
+--- END SETUP ---
+```
+
+</details>
+
+**The game-changing result:** Claude created a comprehensive development plan that accounts for every constraint and preference. Instead of generic "build an app" instructions, I got:
+
+- **Test specifications** written before any implementation code
+- **Development phases** optimized for solo work with AI assistance
+- **Specific Claude Code prompts** for each development stage
+- **Technical architecture** using AI-friendly, well-documented tools
+- **UI/UX guidelines** that ensure polish without scope creep
+
+**Why this step is critical:** This plan becomes your **AI development bible**. Every time you open Claude Code, you know exactly what to build, how to build it, and what prompts to use. No more "what was I building again?" moments between sessions.
+
+### Define the Claude Code Agents
+
+Now comes the fun part—setting up your specialized **Claude Code agents** for actual development. Remember that comprehensive MVP plan you just created? These agents are going to execute it, but only if you set them up properly.
+
+Here's what most people get wrong: they treat **Claude Code agents** like magic AI genies. "Just make my app work!" Then they wonder why their code looks like it was written by a caffeinated intern at 3 AM. I learned this lesson the hard way when [Kilo Code deleted my entire website](/blog/i-became-enemies-with-kilo) due to vague instructions.
+
+The truth? **Claude Code agents** are incredibly powerful, but they need explicit instructions, clear context, and well-defined roles. Think of them as specialized contractors—each one brilliant at their job, but they need detailed specifications to deliver what you actually want.
+
+**The four agents we're using:**
+
+1. **[Backend TypeScript Architect](https://github.com/hesreallyhim/awesome-claude-code-agents/blob/main/agents/backend-typescript-architect.md)** - Sets up your backend architecture
+2. **[Python Backend Engineer](https://github.com/hesreallyhim/awesome-claude-code-agents/blob/main/agents/python-backend-engineer.md)** - Handles backend logic and APIs
+3. **[Senior Code Reviewer](https://github.com/hesreallyhim/awesome-claude-code-agents/blob/main/agents/senior-code-reviewer.md)** - Reviews and optimizes your code
+4. **[UI Engineer](https://github.com/hesreallyhim/awesome-claude-code-agents/blob/main/agents/ui-engineer.md)** - Builds your frontend interface
+
+### Setting Up Global Claude Code Agents (The Smart Way)
+
+Instead of manually creating files and folders, **Claude Code** has a built-in agent management system that's way more elegant. Here's how to set up your specialized agents using the CLI.
+
+**Step 1: Access the Agent Management System**
+
+In **Claude Code**, use the `/agents` command to open the agent management interface. This is where you'll create your global agents that can be used across all your projects. For the purposes of setting up these agents, do not use Claude to assist in the creation of these when prompted to. Configure these manually.
+
+**Step 2: Create Your Four Specialized Agents**
+
+For each agent, you'll need to configure four key fields:
+
+- **Name** - What you'll call the agent
+- **Description/Purpose** - What this agent does
+- **Prompt** - The complete agent instructions
+- **Color** - Visual identifier (pick whatever you like)
+
+**Creating the Backend TypeScript Architect:**
+
+1. Run `/agents` in Claude Code
+2. Click "Create New Agent"
+3. **Name**: `Backend TypeScript Architect`
+4. **Description**: `Sets up backend architecture, database schemas, and project structure for TypeScript projects`
+5. **Prompt**: Navigate to the [Backend TypeScript Architect](https://github.com/hesreallyhim/awesome-claude-code-agents/blob/main/agents/backend-typescript-architect.md) link and copy the entire prompt content
+6. **Color**: Choose your preferred color (I used blue)
+7. Save the agent
+
+**Creating the Python Backend Engineer:**
+
+1. Create another new agent
+2. **Name**: `Python Backend Engineer`
+3. **Description**: `Implements backend logic, APIs, data models, and business logic for Python applications`
+4. **Prompt**: Copy the complete content from [Python Backend Engineer](https://github.com/hesreallyhim/awesome-claude-code-agents/blob/main/agents/python-backend-engineer.md)
+5. **Color**: Choose a different color (I used green)
+6. Save the agent
+
+**Creating the Senior Code Reviewer:**
+
+1. Create another new agent
+2. **Name**: `Senior Code Reviewer`
+3. **Description**: `Reviews code for best practices, security, performance, and maintainability`
+4. **Prompt**: Copy the complete content from [Senior Code Reviewer](https://github.com/hesreallyhim/awesome-claude-code-agents/blob/main/agents/senior-code-reviewer.md)
+5. **Color**: Choose another color (I used red)
+6. Save the agent
+
+**Creating the UI Engineer:**
+
+1. Create the final agent
+2. **Name**: `UI Engineer`
+3. **Description**: `Builds frontend interfaces, components, and handles user experience implementation`
+4. **Prompt**: Copy the complete content from [UI Engineer](https://github.com/hesreallyhim/awesome-claude-code-agents/blob/main/agents/ui-engineer.md)
+5. **Color**: Choose your final color (I used purple)
+6. Save the agent
+
+**Why Global Agents Work Better:**
+
+- **Reusable across projects** - Set them up once, use them everywhere
+- **Easy to manage** - Update prompts in one place
+- **Visual identification** - Colors help you quickly identify which agent you're using
+- **No file management** - Claude Code handles all the storage and organization
+
+**Note on Manual Setup:** If you prefer the manual file approach with `.claude` directories and custom project configurations, you can find detailed instructions in the [awesome-claude-code-agents repository](https://github.com/hesreallyhim/awesome-claude-code-agents). The manual approach gives you more granular control but requires more setup work.
+
+### Using Your Agents (The Right Way)
+
+**Starting a Development Session:**
+
+1. **Load Context First** - Before asking for any code, paste your project context
+2. **Specify the Agent Role** - "You are acting as the Backend TypeScript Architect"
+3. **Reference Your Plans** - "Following the MVP plan in the context document..."
+4. **Be Specific** - Don't say "build the backend," say "implement the user authentication system per the PRD requirements"
+5. **Request Tests First** - Always ask for tests before implementation code
+
+**Example Session Starter:**
+
+```
+Context: [Paste project-overview.md content]
+
+Agent Role: You are the Backend TypeScript Architect for this project.
+
+Task: Set up the initial project structure for the Nimbus sobriety tracker app, following the technical architecture defined in the context document.
+
+Requirements:
+1. Create the directory structure
+2. Set up TypeScript configuration
+3. Configure build tools
+4. Establish database schema
+5. Write tests for the data models BEFORE implementing them
+
+Reference the MVP plan for specific requirements and constraints.
+```
+
+### Agent Coordination Strategy
+
+**The Sequential Approach:**
+
+1. **Backend Architect** → Establishes foundation and architecture
+2. **Python Backend Engineer** → Builds business logic and APIs
+3. **UI Engineer** → Creates frontend components and interfaces
+4. **Senior Code Reviewer** → Reviews and optimizes everything
+
+**The Iterative Approach:**
+
+- Work in small cycles with each agent
+- Have the **Senior Code Reviewer** validate after each major component
+- Use the **Backend Architect** to make architectural decisions throughout
+- Let the **UI Engineer** and **Python Backend Engineer** collaborate on API design
+
+**Pro Tips for Agent Success:**
+
+- **Context is Everything** - Always load your project context at the start of each session
+- **One Agent at a Time** - Don't try to get multiple agents working simultaneously in the same conversation
+- **Save Session Notes** - Document what each agent accomplished and what's next
+- **Reference Your Plans** - Constantly point agents back to your PRD and MVP plan
+- **Test-Driven Always** - Make every agent write tests before implementation
+
+### The Agent Development Workflow That Actually Works
+
+Here's where the magic happens. Those agents you just created? They're about to transform how you build software. But here's what blew my mind: having specialized agents deployed by a primary AI dramatically reduces the number of new sessions needed to complete a project.
+
+Why? **Context window efficiency**. Instead of one AI trying to juggle everything, your primary agent acts like a project manager, delegating work to the right specialists. Each agent brings their full expertise without diluting the conversation.
+
+### Setting Up Your Development Environment
+
+**Step 1: Organize Your Project Structure**
+
+Create your project directory and drop all those planning documents into a dedicated folder. Here's my approach:
+
+- Create a folder that will be your project root
+- I like to have **Claude Code** start from one level above the project folder
+- Drop your PRD, MVP concept, and MVP plan into a `/planning` folder
+
+**Step 2: Initialize Your Claude.md File**
+
+Use `/init` in **Claude Code** to create your `claude.md` file. Your planning docs should give Claude everything it needs to generate a solid foundation.
+
+**Critical instruction:** Tell Claude to double-check that the generated `claude.md` file has **TDD at the forefront**. The project plan should be laid out chronologically:
+
+1. **Create test** → Create code → Test code → Debug → Repeat
+2. Move to next feature
+3. Exception: First step should handle project architecture, directory structure, and dependency installation
+
+All of this should have been defined in your planning phase—that's why we did all that upfront work.
+
+**Step 3: Launch Development**
+
+Open **Claude Code** in your project directory and start the development process. Instruct the AI to reference your planning documents for each step, then watch it summon the right agents for specific work.
+
+The workflow becomes:
+
+- **Primary AI** reads the plan and identifies the next task
+- **Primary AI** calls the appropriate specialist agent
+- **Agent** creates comprehensive tests for the feature
+- **Agent** implements the code
+- **Senior Code Reviewer** validates everything
+- Iterate until tests pass, then move to next feature
+
+### The Real-World Results
+
+Here's the data that convinced me this approach is superior:
+
+**Nimbus MVP Development:**
+
+- **With agents**: 5 Claude Code sessions
+- **Without agents**: 2.5 sessions
+- **Quality difference**: Night and day
+
+But here's the kicker—the agent-built project was far superior in code quality, test coverage, and architectural consistency. And I never had to start a new conversation. All 5 sessions were part of one continuous development thread.
+
+**The game-changer:** With that initial time investment in planning and agent setup, I didn't have to intervene during the MVP development process **once**. I just prompted "continue" when the usage limit reset.
+
+The result? The most impressive MVP I've ever created using AI assistance.
+
+### Your Next Move
+
+You've got the strategy. You've got the tools. You've got the agent templates. Now it's time to build something that matters.
+
+**Here's what I want you to do right now:**
+
+1. **Pick your project** - that app idea you've been sitting on
+2. **Follow this exact process** - don't skip the planning phase
+3. **Set up your agents** - use the `/agents` command and those GitHub links
+4. **Document your results** - I want to hear how it goes
+
+Drop me a line on [Twitter](https://x.com/Stack_Junkie) when you ship your MVP.
+
+**Related Resources:**
+
+- [AI-Product-Development-Toolkit](https://github.com/TechNomadCode/AI-Product-Development-Toolkit) - Complete planning templates
+- [awesome-claude-code-agents](https://github.com/hesreallyhim/awesome-claude-code-agents) - Specialized agent prompts
+- [Building Nimbus Clean Time: A Fast and Easy Sobriety Counter](/blog/nimbus-sober-date-counter) - Real-world example
+- [9-Phase PRD Workflow That Makes AI Tools Actually Work](/blog/ai-ready-prd-workflow-template) - Comprehensive PRD methodology
+- [How to Define Your Software MVP from a PRD Step by Step Guide](/blog/how-to-define-your-software-mvp-from-a-prd-step-by-step-guide) - MVP planning methodology
+- [AI Coding Agent Disaster: Kilo Code Deleted My Website Files](/blog/i-became-enemies-with-kilo) - Why proper agent instructions matter
+- [PayCast v0.3.1-alpha: Closed Testing Success Story](/blog/offline-budgeting-and-paycheck-forecasting-app-paycast) - AI-assisted development results
+
+---
+
+## FAQ
+
+### Why can't I just use Claude Code without all this planning?
+
+You can, but you'll get inconsistent assumptions across coding sessions, creating debugging nightmares. The comprehensive planning approach transforms Claude Code agents from chaotic code generators into a coordinated development team that follows your vision.
+
+### What's the difference between using agents vs. not using agents?
+
+Based on my Nimbus MVP development: agents took 5 Claude Code sessions but delivered superior code quality, test coverage, and architectural consistency. Without agents took 2.5 sessions but the quality was significantly lower. The agent approach also maintained context across all sessions.
+
+### Do I need to create project-specific agents or can I use global ones?
+
+Global agents work better—set them up once using `/agents` in Claude Code and reuse them across all projects. They're easier to manage, visually identifiable by color, and Claude Code handles all the storage and organization.
+
+### How do I know if my PRD and MVP planning is detailed enough?
+
+Your planning is ready when Claude Code can make architectural decisions without asking clarifying questions. Include your constraints (budget, timeline, tech preferences), specify TDD requirements, and ensure every major feature has clear requirements and success criteria.
+
+### What if I want more control than global agents provide?
+
+You can use the manual file approach with `.claude` directories and custom project configurations. Check the [awesome-claude-code-agents repository](https://github.com/hesreallyhim/awesome-claude-code-agents) for detailed instructions on manual setup.
+
+---
+
+## TL;DR
+
+- **Multiple AI agents** working on public repos can build your entire project, but only with bulletproof strategy starting with comprehensive planning
+- **Two-repo approach**: Use AI-Product-Development-Toolkit for planning (PRD → MVP concept → MVP plan), then awesome-claude-code-agents for specialized development
+- **Four key agents**: Backend TypeScript Architect, Python Backend Engineer, Senior Code Reviewer, UI Engineer—set up as global agents using `/agents` command in Claude Code
+- **TDD is non-negotiable**: Tell AI during project prep that development plan needs explicit instructions to write tests before code
+- **Real results**: Nimbus MVP took 5 sessions with agents vs 2.5 without, but agent-built quality was far superior with no intervention needed
+- **Context window efficiency**: Primary AI acts as project manager, delegating to specialist agents instead of one AI juggling everything
+- **The payoff**: One continuous development conversation across multiple sessions, building exactly what you envisioned without scope creep or debugging chaos
