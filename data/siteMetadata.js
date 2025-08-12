@@ -16,6 +16,7 @@ const siteMetadata = {
   github: 'https://github.com/stack-junkie',
   x: 'https://x.com/Stack_Junkie',
   // twitter: 'https://twitter.com/Twitter',
+  substack: 'https://stackjunkie.substack.com/',
   facebook: '',
   youtube: '',
   linkedin: 'https://www.linkedin.com/in/christopher-c-kvamme/',

@@ -11,7 +11,7 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 
-const editUrl = () => siteMetadata.github
+const editUrl = () => siteMetadata.substack
 const discussUrl = () => siteMetadata.x
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
@@ -103,7 +103,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   Discuss on Twitter
                 </Link>
                 {` • `}
-                <Link href={editUrl()}>View on GitHub</Link>
+                <Link href={editUrl()}>Subscribe on Substack</Link>
               </div>
               {siteMetadata.comments &&
                 (siteMetadata.comments as { provider: string }).provider === 'staticman' && (
