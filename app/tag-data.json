@@ -1,6 +1,6 @@
 {
-  "product-management": 1,
-  "ai-development": 3,
+  "product-management": 2,
+  "ai-development": 4,
   "workflow-templates": 1,
   "technical-requirements": 1,
   "prd-templates": 1,
@@ -14,7 +14,7 @@
   "backup-strategy": 1,
   "git-repository-safety": 1,
   "mvp": 2,
-  "prd": 1,
+  "prd": 2,
   "feature-prioritization": 1,
   "moscow-method": 1,
   "lean-software": 1,
@@ -44,5 +44,8 @@
   "finance-app": 1,
   "personal-finance": 1,
   "offline-budgeting": 1,
-  "paycheck-forecasting": 1
+  "paycheck-forecasting": 1,
+  "workflow": 1,
+  "documentation": 1,
+  "context-window": 1
 }
