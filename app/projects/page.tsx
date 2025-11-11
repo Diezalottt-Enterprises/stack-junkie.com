@@ -1,10 +1,13 @@
-import projectsData from '@/data/projectsData'
-import Card from '@/components/Card'
+import { Suspense } from 'react'
 import { genPageMetadata } from 'app/seo'
+import { getAllProjects } from '@/lib/projects'
+import ProjectsClient from './ProjectsClient'
 
 export const metadata = genPageMetadata({ title: 'Projects' })
 
 export default function Projects() {
+  const projects = getAllProjects()
+
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -13,21 +16,19 @@ export default function Projects() {
             Projects
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            Showcase your projects with a hero image (16 x 9)
+            A collection of practical tools and experiments built in public
           </p>
         </div>
         <div className="container py-12">
-          <div className="-m-4 flex flex-wrap">
-            {projectsData.map((d) => (
-              <Card
-                key={d.title}
-                title={d.title}
-                description={d.description}
-                imgSrc={d.imgSrc}
-                href={d.href}
-              />
-            ))}
-          </div>
+          <Suspense
+            fallback={
+              <div className="py-12 text-center">
+                <p className="text-gray-400">Loading projects...</p>
+              </div>
+            }
+          >
+            <ProjectsClient projects={projects} />
+          </Suspense>
         </div>
       </div>
     </>
