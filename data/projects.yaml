@@ -1,0 +1,115 @@
+- slug: chronica
+  title: Chronica
+  subtitle: Desktop Sticky Kanban Widget
+  blurb: Always-on-top sticky-note style kanban. Multi-board, keyboard first, lightweight.
+  status: Alpha
+  category: Featured
+  platform: Desktop
+  stack: Tauri · React · TypeScript
+  hero: /static/images/chronica-hero.gif
+  link_overview: /projects/chronica
+  link_demo: https://chronica.demo
+  link_code: https://gitlab.com/stack-junkie-projects/chronica-board
+  link_devlog: /blog/tag/chronica
+  last_updated: 2025-11-10
+  order: 1
+
+- slug: paycast
+  title: PayCast
+  subtitle: Offline-first budgeting & forecasting
+  blurb: Plan cashflow without accounts or cloud. Works fully offline.
+  status: Alpha
+  category: Featured
+  platform: Mobile/Web
+  stack: React · Capacitor
+  link_overview: /projects/paycast
+  link_devlog: /blog/tag/paycast
+  last_updated: 2025-11-08
+  order: 2
+
+- slug: nimbus-clean-time
+  title: Nimbus Clean Time
+  subtitle: Privacy-first sobriety counter (Android)
+  blurb: Zero-account, zero-tracking. Simple streaks, milestones, and widgets.
+  status: In Dev
+  category: Featured
+  platform: Android
+  stack: Kotlin · Compose
+  link_overview: /projects/nimbus-clean-time
+  last_updated: 2025-11-05
+  order: 3
+
+- slug: stack-forge
+  title: Stack Forge
+  subtitle: Multi-agent dev environment
+  blurb: Opinionated scaffolds, tests, and agents to ship faster with quality gates.
+  status: Early
+  category: Projects
+  platform: Desktop/Web
+  stack: Next.js · FastAPI · Postgres
+  link_overview: /projects/stack-forge
+  last_updated: 2025-11-01
+
+- slug: juniper-canvas-studio
+  title: Juniper Canvas Studio
+  subtitle: AI writing & publishing desktop app
+  blurb: Dual-agent copilot for long-form drafting with local encryption of tokens.
+  status: Paused
+  category: Projects
+  platform: Desktop
+  stack: Electron · TypeScript
+  last_updated: 2025-10-15
+
+- slug: lantern-suite
+  title: Lantern Suite
+  subtitle: Job scam detection & ATS experiments
+  blurb: Signals, heuristics, and datasets for safer job search and employer screening.
+  status: Labs
+  category: Labs
+  platform: Web
+  stack: Next.js · Python · Postgres
+  last_updated: 2025-11-03
+
+- slug: vibefixer
+  title: VibeFixer
+  subtitle: GUI to debug AI-generated code
+  blurb: Drop in a snippet. Get smell-checks, diffs, and fix PRs with guardrails.
+  status: Labs
+  category: Labs
+  platform: Desktop
+  stack: Tauri · React
+  last_updated: 2025-10-28
+
+- slug: easy-speech-to-text
+  title: EasySpeechToText
+  subtitle: PowerShell speech-to-text utility
+  blurb: Batch-transcribe audio to text for LLM workflows and notes.
+  status: Released
+  category: Tooling
+  platform: Windows/CLI
+  stack: PowerShell
+  link_code: https://github.com/Diezalottt-Enterprises/EasySpeechToText
+  last_updated: 2025-09-20
+
+- slug: claudecraft
+  title: ClaudeCraft
+  subtitle: Minecraft + AI scripting
+  blurb: Toy project exploring server ops and AI prompts for creative gameplay.
+  status: Archive
+  category: Archive
+  platform: Desktop
+  stack: Python · CLI
+  link_code: https://github.com/stack-junkie/ClaudeCraft
+  last_updated: 2025-08-10
+
+- slug: stack-junkie-website
+  title: Stack Junkie Website
+  subtitle: Transparent development blog
+  blurb: Built with Next.js and Tailwind CSS, showcasing real experiments with AI, modern web technologies, and honest documentation of the development process.
+  status: Released
+  category: Site
+  platform: Web
+  stack: Next.js · Tailwind CSS · TypeScript
+  link_overview: /
+  link_code: https://github.com/stack-junkie/Stack-Junkie-Blog.git
+  last_updated: 2025-11-11
