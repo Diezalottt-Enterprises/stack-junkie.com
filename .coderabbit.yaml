@@ -1,0 +1,119 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+
+# CodeRabbit configuration for Stack Junkie Blog
+language: "en-US"
+early_access: false
+
+reviews:
+  profile: "chill"
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+
+  # Path filters - exclude files that don't need review
+  path_filters:
+    - "!**/package-lock.json"
+    - "!**/yarn.lock"
+    - "!**/*.min.js"
+    - "!**/*.min.css"
+    - "!**/dist/**"
+    - "!**/build/**"
+    - "!**/.next/**"
+    - "!**/node_modules/**"
+    - "!**/public/static/**"
+
+  # Path-specific review instructions
+  path_instructions:
+    - path: "**/*.{ts,tsx}"
+      instructions: |
+        Review TypeScript/React code for:
+        - Type safety and proper TypeScript usage
+        - React best practices and hooks usage
+        - Performance considerations (useMemo, useCallback where appropriate)
+        - Accessibility (a11y) compliance
+        - Proper error handling
+        - Next.js specific patterns (Server/Client Components, metadata, etc.)
+
+    - path: "**/*.{js,jsx,mjs}"
+      instructions: |
+        Review JavaScript code for:
+        - Modern ES6+ syntax usage
+        - Proper error handling
+        - Code clarity and maintainability
+
+    - path: "app/**/*.{ts,tsx}"
+      instructions: |
+        Review Next.js App Router components for:
+        - Proper use of Server vs Client Components
+        - Correct async/await patterns
+        - Metadata API usage
+        - Route handler best practices
+        - Loading and error states
+
+    - path: "components/**/*.{ts,tsx}"
+      instructions: |
+        Review React components for:
+        - Component composition and reusability
+        - Props validation and TypeScript interfaces
+        - Accessibility features
+        - Performance optimizations
+        - Proper use of React hooks
+
+    - path: "**/**.css"
+      instructions: |
+        Review CSS/Tailwind for:
+        - Proper Tailwind utility usage
+        - Responsive design patterns
+        - Accessibility considerations
+        - Dark mode support
+
+    - path: "**/*.{md,mdx}"
+      instructions: |
+        Review documentation and content for:
+        - Clarity and readability
+        - Proper markdown syntax
+        - Working links and references
+        - Grammar and spelling
+
+    - path: "contentlayer.config.ts"
+      instructions: |
+        Review ContentLayer configuration for:
+        - Proper schema definitions
+        - Field validations
+        - Computed fields logic
+
+    - path: "**/*.test.{ts,tsx,js,jsx}"
+      instructions: |
+        Review test files for:
+        - Comprehensive test coverage
+        - Clear test descriptions
+        - Proper assertions
+        - Edge case handling
+
+    - path: "{package.json,tsconfig.json,next.config.js,eslint.config.mjs}"
+      instructions: |
+        Review configuration files for:
+        - Security vulnerabilities in dependencies
+        - Proper version constraints
+        - Configuration best practices
+        - Breaking changes
+
+  auto_review:
+    enabled: true
+    drafts: false
+
+  # Ignore PRs with these keywords in the title
+  ignore_title_keywords:
+    - "WIP"
+    - "DO NOT MERGE"
+    - "DRAFT"
+
+  # Only review PRs targeting these branches
+  base_branches:
+    - "main"
+    - "develop"
+
+chat:
+  auto_reply: true
