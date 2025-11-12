@@ -12,7 +12,5 @@ export default function Pill({ label, variant = 'default', className = '' }: Pil
     subtle: 'bg-white/5 text-gray-400 border border-white/5',
   }
 
-  return (
-    <span className={`${baseClasses} ${variantClasses[variant]} ${className}`}>{label}</span>
-  )
+  return <span className={`${baseClasses} ${variantClasses[variant]} ${className}`}>{label}</span>
 }

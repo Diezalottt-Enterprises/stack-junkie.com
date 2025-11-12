@@ -11,13 +11,7 @@ export type ProjectStatus =
   | 'Paused'
   | 'Archive'
 
-export type ProjectCategory =
-  | 'Featured'
-  | 'Projects'
-  | 'Labs'
-  | 'Archive'
-  | 'Tooling'
-  | 'Site'
+export type ProjectCategory = 'Featured' | 'Projects' | 'Labs' | 'Archive' | 'Tooling' | 'Site'
 
 export interface ProjectCard {
   slug: string

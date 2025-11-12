@@ -54,7 +54,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         {/* Header */}
         <div className="space-y-4 pt-6 pb-8 md:space-y-5">
-          <div className="flex flex-wrap items-center gap-2 mb-4">
+          <div className="mb-4 flex flex-wrap items-center gap-2">
             <Badge status={status} />
             <Pill label={platform} />
             {stack.split(' · ').map((tech, idx) => (
@@ -77,7 +77,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
             {link_demo && (
               <Link
                 href={link_demo}
-                className="inline-flex items-center rounded-md border border-transparent bg-primary-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                className="bg-primary-600 hover:bg-primary-700 focus:ring-primary-500 inline-flex items-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm focus:ring-2 focus:ring-offset-2 focus:outline-none"
               >
                 View Demo
               </Link>
@@ -85,7 +85,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
             {link_code && (
               <Link
                 href={link_code}
-                className="inline-flex items-center rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                className="focus:ring-primary-500 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-offset-2 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
               >
                 View Code
               </Link>
@@ -93,7 +93,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
             {link_devlog && (
               <Link
                 href={link_devlog}
-                className="inline-flex items-center rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                className="focus:ring-primary-500 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-offset-2 focus:outline-none dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
               >
                 Read Devlog
               </Link>

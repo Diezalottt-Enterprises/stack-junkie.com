@@ -47,12 +47,12 @@ export default function ProjectCard({
   }
 
   return (
-    <article
-      role="article"
+    <div
+      role="button"
       tabIndex={0}
       onClick={handleCardClick}
       onKeyDown={handleKeyDown}
-      className="group cursor-pointer rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.03] p-5 shadow-lg transition-all duration-200 hover:border-white/20 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-950"
+      className="group focus:ring-primary-500 cursor-pointer rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.03] p-5 shadow-lg transition-all duration-200 hover:border-white/20 hover:shadow-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-950 focus:outline-none"
       aria-label={`${title} - ${subtitle || blurb}`}
     >
       {/* Header: Status Badge + Pills */}
@@ -66,14 +66,14 @@ export default function ProjectCard({
 
       {/* Title & Subtitle */}
       <div className="mb-3">
-        <h3 className="text-xl font-bold tracking-tight text-gray-100 group-hover:text-primary-400 transition-colors">
+        <h3 className="group-hover:text-primary-400 text-xl font-bold tracking-tight text-gray-100 transition-colors">
           {title}
         </h3>
-        {subtitle && <p className="text-sm text-gray-400 mt-1">{subtitle}</p>}
+        {subtitle && <p className="mt-1 text-sm text-gray-400">{subtitle}</p>}
       </div>
 
       {/* Blurb */}
-      <p className="mb-4 text-sm text-gray-400 leading-relaxed">{blurb}</p>
+      <p className="mb-4 text-sm leading-relaxed text-gray-400">{blurb}</p>
 
       {/* Hero Image Placeholder */}
       {hero && (
@@ -89,11 +89,11 @@ export default function ProjectCard({
       )}
 
       {/* CTA Buttons */}
-      <div className="flex flex-wrap gap-2 mb-3">
+      <div className="mb-3 flex flex-wrap gap-2">
         {link_overview && (
           <Link
             href={link_overview}
-            className="inline-flex items-center rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-sm font-medium text-gray-300 transition-all hover:border-primary-500 hover:bg-primary-500/10 hover:text-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            className="hover:border-primary-500 hover:bg-primary-500/10 hover:text-primary-400 focus:ring-primary-500 inline-flex items-center rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-sm font-medium text-gray-300 transition-all focus:ring-2 focus:outline-none"
             onClick={(e) => e.stopPropagation()}
           >
             Overview
@@ -102,7 +102,7 @@ export default function ProjectCard({
         {link_demo && (
           <Link
             href={link_demo}
-            className="inline-flex items-center rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-sm font-medium text-gray-300 transition-all hover:border-primary-500 hover:bg-primary-500/10 hover:text-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            className="hover:border-primary-500 hover:bg-primary-500/10 hover:text-primary-400 focus:ring-primary-500 inline-flex items-center rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-sm font-medium text-gray-300 transition-all focus:ring-2 focus:outline-none"
             onClick={(e) => e.stopPropagation()}
           >
             Demo
@@ -111,7 +111,7 @@ export default function ProjectCard({
         {link_code && (
           <Link
             href={link_code}
-            className="inline-flex items-center rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-sm font-medium text-gray-300 transition-all hover:border-primary-500 hover:bg-primary-500/10 hover:text-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            className="hover:border-primary-500 hover:bg-primary-500/10 hover:text-primary-400 focus:ring-primary-500 inline-flex items-center rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-sm font-medium text-gray-300 transition-all focus:ring-2 focus:outline-none"
             onClick={(e) => e.stopPropagation()}
           >
             Code
@@ -120,7 +120,7 @@ export default function ProjectCard({
         {link_devlog && (
           <Link
             href={link_devlog}
-            className="inline-flex items-center rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-sm font-medium text-gray-300 transition-all hover:border-primary-500 hover:bg-primary-500/10 hover:text-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            className="hover:border-primary-500 hover:bg-primary-500/10 hover:text-primary-400 focus:ring-primary-500 inline-flex items-center rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-sm font-medium text-gray-300 transition-all focus:ring-2 focus:outline-none"
             onClick={(e) => e.stopPropagation()}
           >
             Devlog
@@ -131,9 +131,14 @@ export default function ProjectCard({
       {/* Last Updated */}
       {showLastUpdated && last_updated && (
         <div className="text-xs text-gray-500">
-          Updated {new Date(last_updated).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+          Updated{' '}
+          {new Date(last_updated).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+          })}
         </div>
       )}
-    </article>
+    </div>
   )
 }

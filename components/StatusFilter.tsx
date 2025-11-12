@@ -69,7 +69,7 @@ export default function StatusFilter() {
             <button
               key={status}
               onClick={() => handleStatusChange(status)}
-              className={`rounded-lg border px-4 py-2 text-sm font-medium transition-all focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-950 ${
+              className={`focus:ring-primary-500 rounded-lg border px-4 py-2 text-sm font-medium transition-all focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-950 focus:outline-none ${
                 isActive ? activeColors : `${baseColors} bg-transparent`
               }`}
               aria-pressed={isActive}
