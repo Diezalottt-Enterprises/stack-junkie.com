@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nFix yarn.lock to resolve Vercel deployment failure\n\nThe lockfile was out of sync with package.json, causing Vercel builds to fail with \"The lockfile would have been modified by this install\" error. Regenerated yarn.lock to fix this issue.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(yarn add:*)",
+      "Bash(yarn explain:*)",
+      "Bash(yarn npm info:*)",
+      "Bash(yarn install)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nFix all Vercel deployment peer dependency issues\n\n- Fixed TypeScript version to ~5.8.0 to satisfy @typescript-eslint requirements (<5.9.0)\n- Added missing peer dependencies: algoliasearch, @algolia/client-search, search-insights, acorn\n- Configured packageExtensions in .yarnrc.yml to resolve peer dependency warnings for:\n  - react-virtual (to support React 18)\n  - All Algolia packages (@algolia/autocomplete-core, @algolia/autocomplete-plugin-algolia-insights, @docsearch/react, pliny)\n  - All MDX packages (@mdx-js/mdx, @mdx-js/esbuild, mdx-bundler)\n  - All contentlayer2 packages\n- This resolves the Vercel build error: \"The lockfile would have been modified by this install\"\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
